@@ -1,0 +1,35 @@
+<!--Pipe Json-->
+<pre>{{contactForm.value | json }}</pre>
+<!--Fin-->
+<h1>Formulario de contacto</h1>
+<form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+  <div class="mb-4">
+    <label for="name" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="model.name" required #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Este campo es obligatorio.</div>
+  </div>
+  <div class="mb-4 form-check">
+    <label for="checkAdult" class="form-label">¿Sos mayor de 18 años?</label>
+    <input type="checkbox" class="form-check-input" id="checkAdult" name="checkAdult" [(ngModel)]="model.checkAdult"
+      required #checkAdult="ngModel">
+    <div [hidden]="checkAdult.valid || checkAdult.pristine" class="alert alert-danger">Este campo es obligatorio.</div>
+  </div>
+  <div class="mb-4">
+    <label for="department" class="form-label">Departamento</label>
+    <select name="department" id="department" class="form-select form-select-sm" [(ngModel)]="model.department">
+      <option selected>Abrir este menú de selección</option>
+      <option value="marketing">Marketing</option>
+      <option value="sales">Ventas</option>
+      <option value="other">Otro</option>
+    </select>
+  </div>
+  <div class="mb-4">
+    <label for="comment" class="form-label">Comentario</label>
+    <textarea class="form-control" name="comment" id="comment" rows="4" placeholder="Deja un comentario......"
+      [(ngModel)]="model.comment" required #comment="ngModel"></textarea>
+    <div [hidden]="comment.valid || comment.pristine" class="alert alert-danger">Este campo es obligatorio.</div>
+  </div>
+  <div class="d-grid gap-2 col-4 float-end">
+    <button type="submit" class="btn btn-info btn-lg" [disabled]="contactForm.invalid">Enviar</button>
+  </div>
+</form>

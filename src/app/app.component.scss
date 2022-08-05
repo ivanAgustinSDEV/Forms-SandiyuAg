@@ -1,0 +1,28 @@
+ul {
+
+
+  li {
+    cursor: pointer;
+    padding: 0.5rem;
+
+    &:hover {
+      background-color: rgb(202, 202, 202);
+      color: white;
+    }
+
+    &.alert:hover {
+      background-color: #d0cffc;
+    }
+  }
+
+}
+
+.alert {
+  padding: 0.5rem;
+}
+
+.container{
+  background: -prefix-linear-gradient(left top, rgb(245, 82, 82), rgb(178, 6, 201));
+  background: linear-gradient(to bottom right, rgb(93, 185, 243), rgb(231, 197, 197));
+  color: rgb(245, 245, 245)
+}
